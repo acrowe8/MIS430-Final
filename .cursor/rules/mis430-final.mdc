@@ -23,7 +23,8 @@ NextStep UA helps University of Alabama students who are stuck on an assignment 
 5. **Recommendation:** one resource with name, building + room (or Online + link), next open time, drop-in or appointment, contact email/phone, booking button if one exists, one sentence on why it was picked, "Info last checked: [date]", a "Talk to a person" option, and a short "What to expect" section.
 6. When the course guess is right, a student gets from Home to a recommendation in **3 clicks or fewer**, within **10 seconds**, with a loading message while waiting.
 
-Build only what's in the current sprint plan (Sprint 1 tab in the team doc). If a request adds a feature that isn't in the sprint, stop and ask before building it.
+Build only what's in the current sprint plan (/docs/sprint-1.md). If a request adds a feature that isn't in the sprint, stop and ask before building it.
+Build to the acceptance criteria in /docs/sprint-1.md. A story isn't done until every criterion is met.
 
 ## 3. Tech stack (do not change without the team agreeing)
 - **Backend:** C# / ASP.NET Core Web API on **.NET 10**
