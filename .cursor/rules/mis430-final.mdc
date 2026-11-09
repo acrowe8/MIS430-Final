@@ -130,6 +130,17 @@ Build only what's in the current sprint plan (Sprint 1 tab in the team doc). If 
 ## 14. Personal AI decision log (local only)
 Each teammate keeps their own log of decisions about AI-generated output in `decision-log.local.md` at the repo root. This file is in `.gitignore` and must **never** be committed or pushed.
 
+## 15. Keeping AI costs low (non-negotiable)
+- **Never send the full course catalog to OpenAI.** `CourseService` narrows it down first:
+  1. Search the assignment text for a course code (e.g. "CH 101" or "CH101"). If it matches a real course, send only that course.
+  2. If there's no code, search course titles and descriptions for keywords from the assignment and send only the **top 15** matches.
+- **Never send more than 15 courses** in one request.
+- **Trim the assignment text** to the first ~3,000 characters before sending it. The course name and instructions are almost always at the top.
+- **One OpenAI call per upload.** The Yes/No check and the follow-up question are handled by the backend and never call the AI again.
+- **Keep responses short:** use a low-cost model (set in `OPENAI_MODEL`) and cap output at ~200 tokens, since the AI only returns a small JSON object.
+- **Images:** send them at low detail.
+- **Never call OpenAI in automated tests.** Use the fake classification instead.
+
 **When to add an entry** (create the file if it doesn't exist):
 - The user rejects, undoes, or asks you to redo something you generated
 - The user keeps your output but tells you to change it in a meaningful way (logic, structure, approach, wording the user sees). Skip typo and formatting fixes.
