@@ -57,6 +57,41 @@ Build to the acceptance criteria in /docs/sprint-1.md. A story isn't done until 
 | GET | `/api/assignment-types` | Options for the follow-up question |
 | POST | `/api/recommend` | Takes the course + assignment type. Returns one recommendation. |
 
+### Response formats
+`POST /api/recommend` returns:
+```json
+{
+  "type": "recommendation | non_academic | distress",
+  "resource_name": "Chemistry Drop-In Tutoring",
+  "building": "Lloyd Hall",
+  "room": "335",
+  "is_online": false,
+  "online_link": null,
+  "next_open": "Tue 5:00–8:00 PM",
+  "session_type": "drop_in | appointment",
+  "contact_email": "ccssinfo@ua.edu",
+  "contact_phone": "(205) 348-7011",
+  "booking_url": null,
+  "reason": "This looks like a CH 101 lab report, and chem tutoring covers CH 101.",
+  "what_to_expect": "Walk in anytime during open hours. Bring your assignment and notes.",
+  "last_verified": "2026-11-16",
+  "is_stale": false,
+  "show_syllabus_tip": false,
+  "declined_assignment_help": false,
+  "message": null
+}
+```
+- `non_academic` and `distress` responses leave the resource fields null and put the contact info and text in `message`.
+- Any field we don't have is null; the frontend shows "Contact the office to confirm."
+- Until the backend is ready, the frontend can use fake responses in exactly this shape.
+
+`GET /api/courses?search=` returns:
+```json
+[{ "course_id": 12, "code": "CH 101", "title": "General Chemistry" }]
+```
+
+If OpenAI fails or times out, `/api/analyze` returns `course_confidence: "none"` and `type_confidence: "low"` so the app falls back to the course list and the follow-up question instead of crashing.
+
 ## 6. Database
 - MySQL, hosted on Heroku. The database design is still being finalized; don't build tables until it's ready.
 - Until then, use a small hardcoded list of fake resources in a service so screens can be built and tested.
