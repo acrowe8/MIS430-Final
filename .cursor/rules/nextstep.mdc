@@ -1,0 +1,17 @@
+---
+description: Status file, file ownership, and anti-rebuild rules for NextStep UA.
+alwaysApply: true
+---
+
+# NextStep UA – Status & Ownership
+
+## Status file
+- Read `/docs/STATUS.md` before starting any work.
+- When you finish something, update `/docs/STATUS.md` in the same commit.
+
+## File ownership
+- Do not change files owned by another teammate. If a change is needed, stop and tell the user to ask the owner first.
+- Ownership is listed in `/docs/STATUS.md`.
+
+## Don’t rebuild Done work
+- If a request would rebuild something listed as Done in `/docs/STATUS.md`, stop and point to the existing code instead.
