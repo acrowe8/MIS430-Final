@@ -1,0 +1,8 @@
+type_id,name,description
+1,essay,"Essays, papers, research papers, written responses, citations, drafts"
+2,lab_report,Lab reports and lab-related assignments
+3,problem_set,"Homework, problem sets, worksheets, calculations, practice problems"
+4,coding_project,Programming assignments and coding projects
+5,presentation,"Presentations, speeches, speech outlines, delivery practice"
+6,exam_prep,Studying and exam preparation
+7,other,"Anything else, including study skills, time management, and general coursework"

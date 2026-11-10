@@ -1,0 +1,131 @@
+schedule_id,resource_id,location_id,day_of_week,start_time,end_time,session_type,session_detail,start_date,end_date,notes
+1,1,1,Monday,17:00:00,20:00:00,drop_in,Drop-in,,,Supported courses in range; math test-week exceptions
+2,1,1,Tuesday,17:00:00,20:00:00,drop_in,Drop-in,,,Supported courses in range; math test-week exceptions
+3,1,1,Wednesday,17:00:00,20:00:00,drop_in,Drop-in,,,Supported courses in range; math test-week exceptions
+4,1,1,Thursday,17:00:00,20:00:00,drop_in,Drop-in,,,Supported courses in range; math test-week exceptions
+5,2,2,Tuesday,17:00:00,20:00:00,drop_in,Drop-in,,,
+6,3,3,Tuesday,17:00:00,20:00:00,drop_in,Tutoring session,,,
+7,3,3,Thursday,17:00:00,20:00:00,drop_in,Tutoring session,,,
+8,4,3,Tuesday,17:00:00,20:00:00,drop_in,Tutoring session,,,
+9,4,3,Thursday,17:00:00,20:00:00,drop_in,Tutoring session,,,
+10,5,4,Monday,17:00:00,20:00:00,drop_in,Drop-in,,,
+11,5,4,Tuesday,17:00:00,20:00:00,drop_in,Drop-in,,,
+12,5,4,Thursday,17:00:00,20:00:00,drop_in,Drop-in,,,
+13,6,4,Monday,17:00:00,20:00:00,drop_in,Drop-in,,,
+14,6,4,Tuesday,17:00:00,20:00:00,drop_in,Drop-in,,,
+15,6,4,Thursday,17:00:00,20:00:00,drop_in,Drop-in,,,
+16,7,5,Monday,18:30:00,20:00:00,drop_in,Drop-in,,,
+17,7,5,Tuesday,18:30:00,20:00:00,drop_in,Drop-in,,,
+18,7,5,Thursday,17:00:00,20:00:00,drop_in,Drop-in,,,
+19,8,5,Monday,18:30:00,20:00:00,drop_in,Drop-in,,,
+20,8,5,Tuesday,18:30:00,20:00:00,drop_in,Drop-in,,,
+21,8,5,Thursday,17:00:00,20:00:00,drop_in,Drop-in,,,
+22,9,6,Monday,17:00:00,20:00:00,drop_in,1:1 prioritized; walk-ins welcome,,,Appointments prioritized; walk-ins welcomed; Appointment recommended
+23,9,6,Tuesday,17:00:00,20:00:00,drop_in,1:1 prioritized; walk-ins welcome,,,Appointments prioritized; walk-ins welcomed; Appointment recommended
+24,9,6,Wednesday,17:00:00,20:00:00,drop_in,1:1 prioritized; walk-ins welcome,,,Appointments prioritized; walk-ins welcomed; Appointment recommended
+25,9,6,Thursday,17:00:00,20:00:00,drop_in,1:1 prioritized; walk-ins welcome,,,Appointments prioritized; walk-ins welcomed; Appointment recommended
+26,10,6,Monday,17:00:00,20:00:00,drop_in,1:1 prioritized; walk-ins welcome,,,Appointments prioritized; walk-ins welcomed; Appointment recommended
+27,10,6,Tuesday,17:00:00,20:00:00,drop_in,1:1 prioritized; walk-ins welcome,,,Appointments prioritized; walk-ins welcomed; Appointment recommended
+28,10,6,Wednesday,17:00:00,20:00:00,drop_in,1:1 prioritized; walk-ins welcome,,,Appointments prioritized; walk-ins welcomed; Appointment recommended
+29,10,6,Thursday,17:00:00,20:00:00,drop_in,1:1 prioritized; walk-ins welcome,,,Appointments prioritized; walk-ins welcomed; Appointment recommended
+30,11,7,Monday,17:00:00,20:00:00,drop_in,Drop-in,,,
+31,11,7,Tuesday,17:00:00,20:00:00,drop_in,Drop-in,,,
+32,11,7,Thursday,17:00:00,20:00:00,drop_in,Drop-in,,,
+33,12,7,Monday,17:00:00,20:00:00,drop_in,Drop-in,,,
+34,12,7,Tuesday,17:00:00,20:00:00,drop_in,Drop-in,,,
+35,12,7,Thursday,17:00:00,20:00:00,drop_in,Drop-in,,,
+36,13,8,Tuesday,17:00:00,20:00:00,drop_in,1:1 prioritized; walk-ins welcome,,,Appointments prioritized; walk-ins welcomed; Appointment recommended
+37,13,8,Thursday,17:00:00,20:00:00,drop_in,1:1 prioritized; walk-ins welcome,,,Appointments prioritized; walk-ins welcomed; Appointment recommended
+38,14,8,Tuesday,17:00:00,20:00:00,drop_in,1:1 prioritized; walk-ins welcome,,,Appointments prioritized; walk-ins welcomed; Appointment recommended
+39,14,8,Thursday,17:00:00,20:00:00,drop_in,1:1 prioritized; walk-ins welcome,,,Appointments prioritized; walk-ins welcomed; Appointment recommended
+40,15,9,Monday,17:00:00,20:00:00,drop_in,Drop-in,,,
+41,15,9,Tuesday,17:00:00,20:00:00,drop_in,Drop-in,,,
+42,15,9,Thursday,17:00:00,20:00:00,drop_in,Drop-in,,,
+43,16,9,Monday,17:00:00,20:00:00,drop_in,Drop-in,,,
+44,16,9,Tuesday,17:00:00,20:00:00,drop_in,Drop-in,,,
+45,16,9,Thursday,17:00:00,20:00:00,drop_in,Drop-in,,,
+46,17,10,Monday,17:00:00,20:00:00,drop_in,Drop-in,,,
+47,17,10,Tuesday,17:00:00,20:00:00,drop_in,Drop-in,,,
+48,17,10,Wednesday,17:00:00,20:00:00,drop_in,Drop-in,,,
+49,18,10,Monday,17:00:00,20:00:00,drop_in,Drop-in,,,
+50,18,10,Tuesday,17:00:00,20:00:00,drop_in,Drop-in,,,
+51,18,10,Wednesday,17:00:00,20:00:00,drop_in,Drop-in,,,
+52,2,,Monday,18:00:00,20:00:00,appointment,1:1 appointment,,,Room not specified on official page; booking required
+53,2,,Wednesday,17:00:00,20:00:00,appointment,1:1 appointment,,,Room not specified on official page; booking required
+54,19,,Monday,18:00:00,20:00:00,appointment,1:1 appointment,,,Room not specified on official page; booking required
+55,19,,Tuesday,17:00:00,20:00:00,appointment,1:1 appointment,,,Room not specified on official page; booking required
+56,20,,Monday,17:00:00,20:00:00,appointment,1:1 appointment,,,Room not specified on official page; booking required
+57,20,,Wednesday,17:00:00,20:00:00,appointment,1:1 appointment,,,Room not specified on official page; booking required
+58,5,,Wednesday,17:00:00,20:00:00,appointment,1:1 appointment,,,Room not specified on official page; booking required
+59,6,,Wednesday,17:00:00,20:00:00,appointment,1:1 appointment,,,Room not specified on official page; booking required
+60,15,,Wednesday,17:00:00,20:00:00,appointment,1:1 appointment,,,Room not specified on official page; booking required
+61,16,,Wednesday,17:00:00,20:00:00,appointment,1:1 appointment,,,Room not specified on official page; booking required
+62,21,,Thursday,17:00:00,20:00:00,appointment,1:1 appointment,,,Room not specified on official page; booking required
+63,17,,Thursday,17:00:00,20:00:00,appointment,1:1 appointment,,,Room not specified on official page; booking required
+64,18,,Thursday,17:00:00,20:00:00,appointment,1:1 appointment,,,Room not specified on official page; booking required
+65,22,11,Monday,17:00:00,18:30:00,drop_in,SI group session,,,Phoebe | 002-Palmer
+66,22,12,Tuesday,16:00:00,17:30:00,drop_in,SI group session,,,Artemio | 005-Parker
+67,23,13,Monday,15:00:00,16:30:00,drop_in,SI group session,,,Arlie | 001-McLean
+68,23,14,Tuesday,15:15:00,16:45:00,drop_in,SI group session,,,Gradie | 007-Wang
+69,24,15,Monday,15:00:00,16:30:00,drop_in,SI group session,,,Ryan | 001-Leung
+70,24,16,Monday,16:15:00,17:45:00,drop_in,SI group session,,,Abby | 002-Leung
+71,25,17,Monday,16:00:00,17:30:00,drop_in,SI group session,,,Jackson | 003-Watson
+72,25,18,Tuesday,18:30:00,20:00:00,drop_in,SI group session,,,Izzy | 001-Al-Ani
+73,26,19,Monday,14:00:00,15:30:00,drop_in,SI group session,,,Mackenzie | 005-Pate
+74,26,20,Tuesday,16:30:00,18:00:00,drop_in,SI group session,,,Darla | 008-Chism
+75,25,21,Monday,16:30:00,18:00:00,drop_in,SI group session,,,Advaith | 002-Al-Ani
+76,25,18,Monday,17:00:00,18:30:00,drop_in,SI group session,,,Daniel | 001-Al-Ani
+77,25,22,Monday,18:45:00,20:15:00,drop_in,SI group session,,,Loc | 004-Watson
+78,25,23,Tuesday,19:00:00,20:30:00,drop_in,SI group session,,,Florencia | 003-Watson
+79,25,17,Wednesday,16:00:00,17:30:00,drop_in,SI group session,,,Ly | 002-Al-Ani
+80,25,21,Wednesday,16:30:00,18:00:00,drop_in,SI group session,,,Advaith | 002-Al-Ani
+81,25,18,Wednesday,17:00:00,18:30:00,drop_in,SI group session,,,Jackson | 003-Watson
+82,25,18,Wednesday,18:45:00,20:15:00,drop_in,SI group session,,,Florencia | 003-Watson
+83,25,17,Thursday,17:00:00,18:30:00,drop_in,SI group session,,,Loc | 004-Watson
+84,25,24,Thursday,18:00:00,19:30:00,drop_in,SI group session,,,Izzy | 001-Al-Ani
+85,25,14,Friday,11:00:00,12:30:00,drop_in,SI group session,,,Ly | 002-Al-Ani
+86,27,25,,,,appointment,1:1 appointment,,,Only active TRIO SSS students; 60-minute sessions
+87,28,,,,,appointment,Academic coaching,,,Not course-specific tutoring; confirm scheduling and location
+88,29,26,Monday,09:00:00,18:00:00,drop_in,Writing consultation,,,Hours previously identified; confirm current schedule and booking requirements
+89,29,26,Tuesday,09:00:00,18:00:00,drop_in,Writing consultation,,,Hours previously identified; confirm current schedule and booking requirements
+90,29,26,Wednesday,09:00:00,18:00:00,drop_in,Writing consultation,,,Hours previously identified; confirm current schedule and booking requirements
+91,29,26,Thursday,09:00:00,18:00:00,drop_in,Writing consultation,,,Hours previously identified; confirm current schedule and booking requirements
+92,29,26,Friday,09:00:00,15:00:00,drop_in,Writing consultation,,,Hours previously identified; confirm current schedule and booking requirements
+93,30,27,Monday,09:00:00,18:00:00,drop_in,Speaking consultation,,,Hours previously identified; confirm current schedule and booking requirements
+94,30,27,Tuesday,09:00:00,18:00:00,drop_in,Speaking consultation,,,Hours previously identified; confirm current schedule and booking requirements
+95,30,27,Wednesday,09:00:00,18:00:00,drop_in,Speaking consultation,,,Hours previously identified; confirm current schedule and booking requirements
+96,30,27,Thursday,09:00:00,18:00:00,drop_in,Speaking consultation,,,Hours previously identified; confirm current schedule and booking requirements
+97,30,27,Friday,09:00:00,14:00:00,drop_in,Speaking consultation,,,Hours previously identified; confirm current schedule and booking requirements
+98,31,28,Sunday,,,appointment,Online writing consultation,,,Hours vary; book an appointment; no fixed session times published
+99,31,28,Monday,,,appointment,Online writing consultation,,,Hours vary; book an appointment; no fixed session times published
+100,31,28,Tuesday,,,appointment,Online writing consultation,,,Hours vary; book an appointment; no fixed session times published
+101,31,28,Wednesday,,,appointment,Online writing consultation,,,Hours vary; book an appointment; no fixed session times published
+102,31,28,Thursday,,,appointment,Online writing consultation,,,Hours vary; book an appointment; no fixed session times published
+103,31,28,Friday,,,appointment,Online writing consultation,,,Hours vary; book an appointment; no fixed session times published
+104,32,1,Monday,12:00:00,17:00:00,drop_in,In-person peer collaboration,,,Test-week exceptions; MTLC official page lists these supported courses
+105,32,1,Tuesday,12:00:00,17:00:00,drop_in,In-person peer collaboration,,,Test-week exceptions; MTLC official page lists these supported courses
+106,32,1,Wednesday,12:00:00,17:00:00,drop_in,In-person peer collaboration,,,Test-week exceptions; MTLC official page lists these supported courses
+107,32,1,Thursday,12:00:00,17:00:00,drop_in,In-person peer collaboration,,,Test-week exceptions; MTLC official page lists these supported courses
+108,32,1,Friday,12:00:00,17:00:00,drop_in,In-person peer collaboration,,,Test-week exceptions; MTLC official page lists these supported courses
+109,33,,,,,appointment,45-minute individual appointment,,,Book under Academic Coaching > Engineering Math Coaches; no fixed location or hours confirmed
+110,34,29,Monday,17:00:00,20:00:00,appointment,1:1 appointment (distance learners),,,Available for distance learners; must schedule at least 1 week in advance; appointment availability may vary
+111,34,29,Tuesday,17:00:00,20:00:00,appointment,1:1 appointment (distance learners),,,Available for distance learners; must schedule at least 1 week in advance; appointment availability may vary
+112,34,29,Wednesday,17:00:00,20:00:00,appointment,1:1 appointment (distance learners),,,Available for distance learners; must schedule at least 1 week in advance; appointment availability may vary
+113,34,29,Thursday,17:00:00,20:00:00,appointment,1:1 appointment (distance learners),,,Available for distance learners; must schedule at least 1 week in advance; appointment availability may vary
+114,35,30,Monday,16:00:00,19:00:00,appointment,In-person lab tutoring,2026-08-31,2026-12-01,"Lab open Aug 31–Dec 1, 2026; closed on university holidays; appointment policy not specified"
+115,35,30,Wednesday,16:00:00,19:00:00,appointment,In-person lab tutoring,2026-08-31,2026-12-01,"Lab open Aug 31–Dec 1, 2026; closed on university holidays; appointment policy not specified"
+116,36,30,Tuesday,16:00:00,19:00:00,appointment,In-person lab tutoring,2026-08-31,2026-12-01,"Lab open Aug 31–Dec 1, 2026; closed on university holidays; appointment policy not specified"
+117,36,30,Thursday,16:00:00,19:00:00,appointment,In-person lab tutoring,2026-08-31,2026-12-01,"Lab open Aug 31–Dec 1, 2026; closed on university holidays; appointment policy not specified"
+118,37,30,Tuesday,16:00:00,19:00:00,appointment,In-person lab tutoring,2026-08-31,2026-12-01,"Lab open Aug 31–Dec 1, 2026; closed on university holidays; appointment policy not specified"
+119,37,30,Thursday,16:00:00,19:00:00,appointment,In-person lab tutoring,2026-08-31,2026-12-01,"Lab open Aug 31–Dec 1, 2026; closed on university holidays; appointment policy not specified"
+120,38,30,Tuesday,16:00:00,19:00:00,appointment,In-person lab tutoring,2026-08-31,2026-12-01,"Lab open Aug 31–Dec 1, 2026; closed on university holidays; appointment policy not specified"
+121,38,30,Thursday,16:00:00,19:00:00,appointment,In-person lab tutoring,2026-08-31,2026-12-01,"Lab open Aug 31–Dec 1, 2026; closed on university holidays; appointment policy not specified"
+122,39,30,Monday,16:00:00,19:00:00,appointment,In-person lab tutoring,2026-08-31,2026-12-01,"Lab open Aug 31–Dec 1, 2026; closed on university holidays; appointment policy not specified"
+123,40,30,Monday,16:00:00,19:00:00,appointment,In-person lab tutoring,2026-08-31,2026-12-01,"Lab open Aug 31–Dec 1, 2026; closed on university holidays; appointment policy not specified"
+124,40,30,Tuesday,16:00:00,19:00:00,appointment,In-person lab tutoring,2026-08-31,2026-12-01,"Lab open Aug 31–Dec 1, 2026; closed on university holidays; appointment policy not specified"
+125,40,30,Wednesday,16:00:00,19:00:00,appointment,In-person lab tutoring,2026-08-31,2026-12-01,"Lab open Aug 31–Dec 1, 2026; closed on university holidays; appointment policy not specified"
+126,40,30,Thursday,16:00:00,19:00:00,appointment,In-person lab tutoring,2026-08-31,2026-12-01,"Lab open Aug 31–Dec 1, 2026; closed on university holidays; appointment policy not specified"
+127,41,30,Wednesday,16:00:00,19:00:00,appointment,In-person lab tutoring,2026-08-31,2026-12-01,"Lab open Aug 31–Dec 1, 2026; closed on university holidays; appointment policy not specified"
+128,42,30,Tuesday,16:00:00,19:00:00,appointment,In-person lab tutoring,2026-08-31,2026-12-01,"Lab open Aug 31–Dec 1, 2026; closed on university holidays; appointment policy not specified"
+129,42,30,Thursday,16:00:00,19:00:00,appointment,In-person lab tutoring,2026-08-31,2026-12-01,"Lab open Aug 31–Dec 1, 2026; closed on university holidays; appointment policy not specified"
+130,43,30,Monday,16:00:00,19:00:00,appointment,In-person lab tutoring,2026-08-31,2026-12-01,"Lab open Aug 31–Dec 1, 2026; closed on university holidays; appointment policy not specified"

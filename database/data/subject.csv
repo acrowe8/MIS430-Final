@@ -1,0 +1,133 @@
+subject_id,code,name
+1,AAST,African-American Studies
+2,AC,Accountancy
+3,AEM,Aerospace Engineering and Mechanics
+4,AFS,Air Force Studies
+5,ALA,Applied Liberal A&S
+6,AMS,American Studies
+7,ANT,Anthropology
+8,APR,Advertising and Public Relations
+9,ARB,Arabic
+10,ARH,Art History
+11,ART,"Art, Studio"
+12,AS,Arts and Sciences
+13,ASL,American Sign Language
+14,ATR,Athletic Training
+15,AY,Astronomy
+16,BA,Book Arts
+17,BCE,Counselor Education
+18,BEF,"History, Philosophy and Sociology of Education"
+19,BEP,Educational Psychology
+20,BER,Educational Research
+21,BSC,Biological Sciences
+22,BUI,Blount Scholars Program
+23,CAT,Computers and Applied Technology
+24,CC,Cyber Criminology
+25,CE,"Civil, Construction and Environmental Engineering"
+26,CEE,Elementary Education Programs
+27,CH,Chemistry
+28,CHE,Chemical and Biological Engineering
+29,CHI,Chinese
+30,CHS,Community Health Sciences
+31,CIE,Curriculum and Instruction
+32,CIP,Capstone International Programs
+33,CIS,Communication Information Sciences
+34,CJ,Criminology & Criminal Justice
+35,CL,Classics
+36,COM,Communication Studies
+37,CRD,Reading Education
+38,CRL,Critical Languages
+39,CS,Computer Science
+40,CSE,"Secondary Curriculum, Teaching and Learning"
+41,CSM,Consumer Sciences
+42,CTD,"Clothing, Textiles and Interior Design"
+43,CZE,Czech
+44,DN,Dance
+45,DNCA,"Dance, Academics"
+46,DR,Engineering Graphics
+47,EC,Economics
+48,ECE,Electrical and Computer Engineering
+49,EDU,Education Orientation
+50,EN,English
+51,ENGR,General Engineering
+52,EPIC,Engineering Positive and Intentional Change
+53,FA,Fine Arts
+54,FI,Finance
+55,FR,French
+56,GBA,General Business Administration
+57,GDS,Graphic Design
+58,GEO,Geological Sciences
+59,GES,General Engineering Studies
+60,GN,German
+61,GR,Greek
+62,GS,General Studies
+63,GY,Geography
+64,HCAN,Health Care Analytics
+65,HD,Human Development and Family Studies
+66,HES,Human Environmental Sciences
+67,HHE,Health Education
+68,HSM,Hospitality and Sport Management
+69,HY,History
+70,IBA,International Business
+71,IDMD,Interdisciplinary Studies in Medicine
+72,IS,Information Sciences
+73,IT,Italian
+74,JA,Japanese
+75,JCM,Journalism and Creative Media
+76,KIN,Kinesiology
+77,KOR,Korean
+78,LA,Latin
+79,LAS,Latin American Studies
+80,LGS,Legal Studies
+81,LS,Library and Information Studies
+82,MAP,Multiple Abilities Program
+83,MATH,Mathematics
+84,MC,Mass Communication
+85,MDGR,Modern Greek
+86,ME,Mechanical Engineering
+87,MFE,Manufacturing Systems Engineering
+88,MGT,Management
+89,MIL,Military Science
+90,MIS,Management Information Systems
+91,MKT,Marketing
+92,MLC,Modern Languages and Classics
+93,MS,Marine Science
+94,MTE,Metallurgical and Materials Engineering
+95,MUA,"Music, Applied"
+96,MUE,Music Education
+97,MUS,Music Academics
+98,MUSM,Museum Studies
+99,NCLT,New College Life Track
+100,NEW,New College
+101,NHM,"Human Nutrition, Hospitality, and Sport Management"
+102,NSE,National Student Exchange
+103,NUR,Nursing
+104,OM,Operations Management
+105,PH,Physics
+106,PHL,Philosophy
+107,PLPS,"Policy, Leadership & Public Service"
+108,POPH,Population Health
+109,POR,Portuguese
+110,PSC,Political Science
+111,PY,Psychology
+112,RCH,Rural Community Health
+113,REL,Religious Studies
+114,RL,Romance Language(s)
+115,RRS,Randall Research Scholars Program
+116,RUS,Russian
+117,SLH,"Speech, Language, & Hearing Sciences"
+118,SOC,Sociology
+119,SP,Spanish
+120,SPE,Special Education
+121,ST,Statistics
+122,SW,Social Work
+123,TH,Theatre
+124,THAI,Thai
+125,THMT,"Theatre, Musical Theatre"
+126,UA,University College
+127,UAEC,UA Early College
+128,UFE,University Fellows Exp
+129,UH,University Honors Program
+130,UKR,Ukrainian
+131,VIET,Vietnamese
+132,WS,Women's Studies
