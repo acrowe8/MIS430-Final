@@ -10,7 +10,7 @@ A working prototype where a student can upload an assignment, confirm the course
 | ID | Story | Priority | Points | Owner |
 |---|---|---|---|---|
 | 1 | Upload assignment; AI identifies the course with a Yes/No check | Must | 5 | Carter |
-| 2 | AI recommends the best-fit UA resource | Must | 8 | Cole |
+| 2 | AI recommends the best-fit UA resource (`POST /api/recommend`) | Must | 8 | Cole |
 | 3 | Real, accurate UA resource data | Must | 5 | Mary |
 | 4 | Show building, room, hours, and contact info | Must | 3 | Carter |
 | 5 | Follow-up question when the assignment type is unclear | Must | 5 | Cole |
