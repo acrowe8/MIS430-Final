@@ -1,0 +1,22 @@
+﻿:root { --crimson: #9e1b32; --ink: #27272b; }
+body { background: #f7f6f3; color: var(--ink); }
+.page-width { max-width: 1160px; }
+.brand { color: var(--ink); font-size: 1.6rem; font-weight: 800; letter-spacing: -.06rem; }
+.brand span { color: var(--crimson); }
+.main-layout { min-height: 530px; }
+.eyebrow { color: var(--crimson); font-size: .72rem; font-weight: 700; letter-spacing: .1rem; text-transform: uppercase; }
+h1 { font-size: clamp(3.5rem, 5vw, 4.5rem); font-weight: 750; letter-spacing: -.2rem; line-height: 1.06; }
+h1 span { color: var(--crimson); }
+.intro { max-width: 420px; font-size: 1.2rem; line-height: 1.7; }
+.support-note { line-height: 1.8; }
+.upload-card { border-radius: 1.1rem; box-shadow: 0 12px 40px #2525250a; }
+.step-number { display: inline-flex; justify-content: center; align-items: center; width: 1.8rem; height: 1.8rem; border-radius: 50%; background: #f7e9ec; color: var(--crimson); font-size: .8rem; font-weight: 700; }
+.form-control { resize: vertical; min-height: 92px; font-size: .95rem; border-color: #d7d5d2; }
+.form-control:focus { border-color: var(--crimson); box-shadow: 0 0 0 .2rem #9e1b3220; }
+.btn-primary { --bs-btn-bg: var(--crimson); --bs-btn-border-color: var(--crimson); --bs-btn-hover-bg: #801529; --bs-btn-hover-border-color: #801529; --bs-btn-active-bg: #681121; --bs-btn-active-border-color: #681121; --bs-btn-disabled-bg: var(--crimson); --bs-btn-disabled-border-color: var(--crimson); font-size: 1rem; font-weight: 600; padding: .9rem 1.2rem; }
+.btn:focus-visible, .brand:focus-visible { outline: 3px solid var(--crimson); outline-offset: 4px; box-shadow: none; }
+.privacy-note { line-height: 1.6; }
+.path-number { color: var(--crimson); font-size: .8rem; font-weight: 700; margin-right: .75rem; }
+.how-it-works p { margin-left: 2rem; }
+[hidden] { display: none !important; }
+@media (prefers-reduced-motion: reduce) { .spinner-border { animation: none; } }
