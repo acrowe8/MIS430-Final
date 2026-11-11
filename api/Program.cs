@@ -24,6 +24,7 @@ builder.Services.AddSingleton<CourseService>();
 builder.Services.AddSingleton<FileExtractionService>();
 builder.Services.AddSingleton<AiService>();
 builder.Services.AddSingleton<AnalyzeService>();
+builder.Services.AddSingleton<RecommendationService>();
 
 // Swagger UI in Development only — handy for uploading a test file from the browser.
 if (builder.Environment.IsDevelopment())

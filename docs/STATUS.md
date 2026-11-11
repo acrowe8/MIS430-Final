@@ -14,13 +14,14 @@ Keep this file current. Update it in the same commit when you finish work.
 | Course candidate narrowing (codes, full subject names, section numbers, header-first, file-name clue, FULLTEXT fallback) | `/api/Services/CourseService.cs`, `/api/Models/CandidateCourse.cs` |
 | OpenAI classifier (one call; `<file_name>` clue; gate "high" unless course named in text/file name; low-confidence fallback on failure) | `/api/Services/AiService.cs`, `/api/Services/AnalyzeService.cs`, `/api/Services/CourseService.cs` |
 | Classifier system prompt | `/api/Prompts/classifier-system-prompt.md` |
+| `POST /api/recommend` (Cole) — fallback chain + soonest Central open slot; distress / non-academic handoffs; reason text only says a resource “covers” a course when `resource_course` linked it | `/api/Controllers/RecommendController.cs`, `/api/Services/RecommendationService.cs`, `/api/Models/RecommendRequest.cs`, `/api/Models/RecommendResponse.cs` |
 
 ## Owners
 
 | Owner | Owns |
 |---|---|
-| Cole | `AiService`, `CourseService`, `DatabaseConfig`, `/api/Prompts/`, `/database/`, `AnalyzeController`, `CoursesController` (and related analyze/course models + services he introduced) |
-| Carter | Frontend in `/api/wwwroot/`, upcoming `POST /api/recommend` |
+| Cole | `AiService`, `CourseService`, `RecommendationService`, `DatabaseConfig`, `/api/Prompts/`, `/database/`, `AnalyzeController`, `CoursesController`, `RecommendController` (and related analyze/course/recommend models + services he introduced); Sprint 1 Story 2 |
+| Carter | Frontend in `/api/wwwroot/` |
 
 Do not edit another teammate’s files. Ask the owner first.
 
@@ -29,6 +30,5 @@ Do not edit another teammate’s files. Ask the owner first.
 - Carter main screen implemented locally on `carter/main-screen`: upload button, optional message, client file checks, loading/error/success states, and relative `POST /api/analyze` request (`/api/wwwroot/index.html`, `index.js`, `styles.css`). Pending review; not yet a complete Story 1 flow.
 - Successful uploads currently show an acknowledgment only. Wire the classification to course confirmation/search, assignment-type selection, and non-academic/distress handoffs next.
 - Main-screen checks: `dotnet build NextStep.sln` passed (0 warnings/errors), JavaScript syntax passed, and mocked upload checks passed for invalid/empty/oversized files, multipart submission, loading, success, and server-error recovery. No OpenAI calls made. Desktop Chrome visual verification remains pending because browser preview timed out.
-- `POST /api/recommend` (not built)
 - Course confirmation, course search, assignment-type question, and recommendation frontend screens (not built)
 - Sprint 1 stretch stories 8–10 (Talk to a person, why + last updated, what to expect) — wait until core recommend + UI exist
