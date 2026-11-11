@@ -106,6 +106,55 @@ public class CourseService
         return await FindCoursesByFullTextAsync(combined, cancellationToken);
     }
 
+    /// <summary>
+    /// True if the course's code (e.g. CH 101 / CH101) or full subject name + number
+    /// appears in text. Used to gate AI "high" confidence — topic-only matches stay "low".
+    /// </summary>
+    public async Task<bool> IsCourseNamedInTextAsync(
+        string? courseCode,
+        string text,
+        CancellationToken cancellationToken = default)
+    {
+        if (string.IsNullOrWhiteSpace(courseCode) || string.IsNullOrWhiteSpace(text))
+        {
+            return false;
+        }
+
+        var codeMatch = CourseCodeRegex.Match(courseCode.Trim());
+        if (!codeMatch.Success)
+        {
+            return false;
+        }
+
+        var subject = codeMatch.Groups[1].Value.ToUpperInvariant();
+        var number = codeMatch.Groups[2].Value.ToUpperInvariant();
+
+        // Code forms: "CH 101", "CH101" (and spaced variants).
+        var codePattern = $@"\b{Regex.Escape(subject)}\s*{Regex.Escape(number)}\b";
+        if (Regex.IsMatch(text, codePattern, RegexOptions.IgnoreCase))
+        {
+            return true;
+        }
+
+        // Full subject name + number (e.g. "General Chemistry 101").
+        await using var connection = new MySqlConnection(_connectionString);
+        await connection.OpenAsync(cancellationToken);
+
+        const string sql = "SELECT name FROM subject WHERE code = @code LIMIT 1";
+        await using var command = new MySqlCommand(sql, connection);
+        command.Parameters.AddWithValue("@code", subject);
+
+        var nameObj = await command.ExecuteScalarAsync(cancellationToken);
+        var name = nameObj as string;
+        if (string.IsNullOrWhiteSpace(name) || name.Length < 3)
+        {
+            return false;
+        }
+
+        var namePattern = $@"\b{Regex.Escape(name)}\s+{Regex.Escape(number)}\b";
+        return Regex.IsMatch(text, namePattern, RegexOptions.IgnoreCase);
+    }
+
     /// <summary>Resolve a course_guess code (e.g. "CH 101") to a DB course, or null.</summary>
     public async Task<Course?> FindByCodeAsync(string? code, CancellationToken cancellationToken = default)
     {

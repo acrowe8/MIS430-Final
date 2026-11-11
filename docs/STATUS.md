@@ -11,8 +11,8 @@ Keep this file current. Update it in the same commit when you finish work.
 | MySQL connection from `JAWSDB_URL` | `/api/Services/DatabaseConfig.cs` |
 | `GET /api/courses?search=` | `/api/Controllers/CoursesController.cs`, `/api/Services/CourseService.cs`, `/api/Models/Course.cs` |
 | `POST /api/analyze` (upload → classify; file in memory only) | `/api/Controllers/AnalyzeController.cs`, `/api/Services/AnalyzeService.cs`, `/api/Services/FileExtractionService.cs`, `/api/Models/AnalyzeResponse.cs` |
-| Course candidate narrowing (codes, full subject names, section numbers, header-first, FULLTEXT fallback) | `/api/Services/CourseService.cs`, `/api/Models/CandidateCourse.cs` |
-| OpenAI classifier (one call; low-confidence fallback on failure) | `/api/Services/AiService.cs` |
+| Course candidate narrowing (codes, full subject names, section numbers, header-first, file-name clue, FULLTEXT fallback) | `/api/Services/CourseService.cs`, `/api/Models/CandidateCourse.cs` |
+| OpenAI classifier (one call; `<file_name>` clue; gate "high" unless course named in text/file name; low-confidence fallback on failure) | `/api/Services/AiService.cs`, `/api/Services/AnalyzeService.cs`, `/api/Services/CourseService.cs` |
 | Classifier system prompt | `/api/Prompts/classifier-system-prompt.md` |
 
 ## Owners

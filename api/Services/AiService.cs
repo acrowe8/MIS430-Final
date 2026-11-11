@@ -51,6 +51,7 @@ public class AiService
         IReadOnlyList<CandidateCourse> candidates,
         string? studentMessage,
         string assignmentText,
+        string? fileName,
         byte[]? imageBytes,
         string? imageContentType,
         CancellationToken cancellationToken = default)
@@ -68,9 +69,9 @@ public class AiService
             // Part B: load the reviewed system prompt from /api/Prompts (one file for the team).
             var systemPrompt = await LoadSystemPromptAsync(cancellationToken);
 
-            // Part C: build the user payload — courses, optional message, assignment text.
-            // Assignment/message are DATA only; the system prompt tells the model to ignore embedded instructions.
-            var userText = BuildUserContent(candidates, studentMessage, assignmentText);
+            // Part C: build the user payload — courses, file name, optional message, assignment text.
+            // Assignment/message/file name are DATA only; the system prompt tells the model to ignore embedded instructions.
+            var userText = BuildUserContent(candidates, studentMessage, assignmentText, fileName);
 
             // Part D: OpenAI client with a hard 10-second timeout (sprint: recommendation path stays snappy).
             var clientOptions = new OpenAIClientOptions
@@ -132,7 +133,8 @@ public class AiService
     private static string BuildUserContent(
         IReadOnlyList<CandidateCourse> candidates,
         string? studentMessage,
-        string assignmentText)
+        string assignmentText,
+        string? fileName)
     {
         var sb = new StringBuilder();
 
@@ -157,6 +159,12 @@ public class AiService
         }
 
         sb.AppendLine("</courses>");
+        sb.AppendLine();
+
+        // Original upload file name — often encodes the course code (e.g. ..._GBA_146_...).
+        sb.AppendLine("<file_name>");
+        sb.AppendLine(string.IsNullOrWhiteSpace(fileName) ? string.Empty : fileName.Trim());
+        sb.AppendLine("</file_name>");
         sb.AppendLine();
 
         // Optional student message inside <student_message> tags.

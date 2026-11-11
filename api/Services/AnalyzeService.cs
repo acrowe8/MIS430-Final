@@ -26,11 +26,15 @@ public class AnalyzeService
         // 1) Validate + read file in memory; extract PDF/docx text (first 3,000 chars).
         var upload = await _files.ReadAsync(file, cancellationToken);
 
-        // 2) Text used for DB narrowing: extracted assignment text + optional student message.
-        //    (Images have no extracted text; message still helps find a course code.)
+        // File names often encode the class (e.g. ..._GBA_146_...); treat _ and - as spaces for search.
+        var fileNameForSearch = NormalizeFileNameSeparators(upload.FileName);
+
+        // 2) Text used for DB narrowing: file name first (header bias), then assignment text + message.
+        //    (Images have no extracted text; file name / message still help find a course code.)
         var textForCandidates = string.Join(
             '\n',
-            new[] { upload.ExtractedText, message }.Where(s => !string.IsNullOrWhiteSpace(s)));
+            new[] { fileNameForSearch, upload.ExtractedText, message }
+                .Where(s => !string.IsNullOrWhiteSpace(s)));
 
         // 3) CourseService picks ≤15 candidates (code/name hits first, else FULLTEXT).
         var candidates = await _courses.FindCandidatesAsync(textForCandidates, cancellationToken);
@@ -40,6 +44,7 @@ public class AnalyzeService
             candidates,
             message,
             upload.ExtractedText,
+            upload.FileName,
             upload.IsImage ? upload.Bytes : null,
             upload.IsImage ? upload.ContentType : null,
             cancellationToken);
@@ -53,6 +58,22 @@ public class AnalyzeService
             classification.Title = matched.Title;
             // Prefer the canonical DB code spelling.
             classification.CourseGuess = matched.Code;
+
+            // Don't trust AI "high" unless the course is actually named in the file text or file name.
+            if (string.Equals(classification.CourseConfidence, "high", StringComparison.OrdinalIgnoreCase))
+            {
+                var namingEvidence = string.Join(
+                    '\n',
+                    new[] { upload.ExtractedText, upload.FileName, fileNameForSearch }
+                        .Where(s => !string.IsNullOrWhiteSpace(s)));
+
+                var named = await _courses.IsCourseNamedInTextAsync(
+                    matched.Code, namingEvidence, cancellationToken);
+                if (!named)
+                {
+                    classification.CourseConfidence = "low";
+                }
+            }
         }
         else if (!string.Equals(classification.CourseConfidence, "none", StringComparison.OrdinalIgnoreCase))
         {
@@ -65,5 +86,16 @@ public class AnalyzeService
         }
 
         return classification;
+    }
+
+    /// <summary>Students often put course codes in file names with underscores/dashes as separators.</summary>
+    private static string NormalizeFileNameSeparators(string? fileName)
+    {
+        if (string.IsNullOrWhiteSpace(fileName))
+        {
+            return string.Empty;
+        }
+
+        return fileName.Replace('_', ' ').Replace('-', ' ');
     }
 }
