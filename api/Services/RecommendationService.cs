@@ -70,7 +70,7 @@ public class RecommendationService
 
         // Step 5: walk the fallback chain; first non-empty priority wins.
         // Skip any resource with a non-null eligibility (open-to-all only).
-        var (candidates, showSyllabusTip) = await FindCandidatesByPriorityAsync(
+        var (candidates, matchKind) = await FindCandidatesByPriorityAsync(
             connection,
             course.CourseId,
             course.SubjectId,
@@ -114,7 +114,7 @@ public class RecommendationService
         best ??= new ResourcePick(candidates[0], await LoadSchedulesAsync(connection, candidates[0].ResourceId, cancellationToken), null);
 
         // Step 7: build the response from the chosen resource + winning schedule row.
-        return BuildRecommendation(best, course.Code, assignmentType, showSyllabusTip, askedForAnswers, nowCentral);
+        return BuildRecommendation(best, course.Code, assignmentType, matchKind, askedForAnswers, nowCentral);
     }
 
     private static RecommendResponse HandoffResponse(string type, string message, bool askedForAnswers)
@@ -146,7 +146,7 @@ public class RecommendationService
         ResourcePick pick,
         string courseCode,
         string assignmentType,
-        bool showSyllabusTip,
+        MatchKind matchKind,
         bool askedForAnswers,
         DateTimeOffset nowCentral)
     {
@@ -170,10 +170,17 @@ public class RecommendationService
         var isStale = resource.LastVerified.HasValue
             && resource.LastVerified.Value < DateOnly.FromDateTime(nowCentral.DateTime).AddDays(-30);
 
-        // Template reason — no AI call.
+        // Template reason — no AI call. Only say "covers [course]" when resource_course linked it.
         var typeLabel = AssignmentTypeLabel(assignmentType);
-        var reason =
-            $"This looks like a {courseCode} {typeLabel}, and {resource.Name} covers {courseCode}.";
+        var reason = matchKind switch
+        {
+            MatchKind.CourseLinked =>
+                $"This looks like a {courseCode} {typeLabel}, and {resource.Name} covers {courseCode}.",
+            MatchKind.SubjectLinked =>
+                $"This looks like a {courseCode} {typeLabel}, and {resource.Name} can help with this subject.",
+            _ =>
+                $"We couldn't find help specific to {courseCode}, but {resource.Name} can help with {typeLabel} for any class."
+        };
 
         return new RecommendResponse
         {
@@ -192,7 +199,7 @@ public class RecommendationService
             WhatToExpect = resource.WhatToExpect,
             LastVerified = lastVerified,
             IsStale = isStale,
-            ShowSyllabusTip = showSyllabusTip,
+            ShowSyllabusTip = matchKind == MatchKind.General,
             DeclinedAssignmentHelp = askedForAnswers,
             Message = null
         };
@@ -202,7 +209,7 @@ public class RecommendationService
     /// Fallback order (eligibility IS NULL on every step):
     /// a) course + assignment type → b) course → c) subject → d) general + type → e) general.
     /// </summary>
-    private static async Task<(IReadOnlyList<ResourceRow> Candidates, bool ShowSyllabusTip)> FindCandidatesByPriorityAsync(
+    private static async Task<(IReadOnlyList<ResourceRow> Candidates, MatchKind Kind)> FindCandidatesByPriorityAsync(
         MySqlConnection connection,
         int courseId,
         int subjectId,
@@ -223,7 +230,7 @@ public class RecommendationService
             """, courseId, subjectId, assignmentType, cancellationToken);
         if (a.Count > 0)
         {
-            return (a, false);
+            return (a, MatchKind.CourseLinked);
         }
 
         // b. linked to the course
@@ -237,7 +244,7 @@ public class RecommendationService
             """, courseId, subjectId, assignmentType, cancellationToken);
         if (b.Count > 0)
         {
-            return (b, false);
+            return (b, MatchKind.CourseLinked);
         }
 
         // c. linked to the course’s subject
@@ -251,7 +258,7 @@ public class RecommendationService
             """, courseId, subjectId, assignmentType, cancellationToken);
         if (c.Count > 0)
         {
-            return (c, false);
+            return (c, MatchKind.SubjectLinked);
         }
 
         // d. is_general = true AND linked to the assignment type → syllabus tip
@@ -267,7 +274,7 @@ public class RecommendationService
             """, courseId, subjectId, assignmentType, cancellationToken);
         if (d.Count > 0)
         {
-            return (d, true);
+            return (d, MatchKind.General);
         }
 
         // e. is_general = true → syllabus tip
@@ -278,7 +285,7 @@ public class RecommendationService
             WHERE r.eligibility IS NULL
               AND r.is_general = 1
             """, courseId, subjectId, assignmentType, cancellationToken);
-        return (e, true);
+        return (e, MatchKind.General);
     }
 
     private static async Task<IReadOnlyList<ResourceRow>> QueryResourcesAsync(
@@ -547,6 +554,14 @@ public class RecommendationService
             // Windows often uses the display id instead of the IANA name.
             return TimeZoneInfo.FindSystemTimeZoneById("Central Standard Time");
         }
+    }
+
+    /// <summary>Which fallback step produced the candidates (drives reason text + syllabus tip).</summary>
+    private enum MatchKind
+    {
+        CourseLinked,   // a or b — resource_course link
+        SubjectLinked,  // c — resource_subject link
+        General         // d or e — is_general
     }
 
     private sealed record CourseInfo(int CourseId, int SubjectId, string Code);
