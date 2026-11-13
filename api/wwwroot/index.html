@@ -26,6 +26,7 @@
       </section>
       <section class="col-6" aria-labelledby="upload-heading">
         <div class="card upload-card border-0 p-4 p-xl-5">
+          <div id="upload-panel">
           <div class="d-flex align-items-center gap-2 mb-4"><span class="step-number" aria-hidden="true">1</span><span class="small fw-semibold text-secondary">Start with your assignment</span></div>
           <h2 id="upload-heading" class="h3 fw-bold">Let’s find the right help.</h2>
           <p class="text-secondary mb-4">Upload an assignment so we can identify your course and the kind of support you need.</p>
@@ -44,6 +45,70 @@
           <div id="upload-success" class="alert alert-success mt-4 mb-0" role="status" aria-live="polite" hidden></div>
           <p id="privacy-note" class="privacy-note small text-secondary border-top pt-4 mt-4 mb-0">Your upload is used to identify the support you need. NextStep UA helps you find academic resources; it doesn’t answer your assignment.</p>
           <noscript><p class="alert alert-warning mt-3">Please enable JavaScript to upload an assignment.</p></noscript>
+          </div>
+          <section id="confirm-panel" aria-labelledby="confirm-heading" hidden>
+            <p class="eyebrow">Step 2 · Confirm your course</p>
+            <h2 id="confirm-heading" class="h3 fw-bold" tabindex="-1">Is this your course?</h2>
+            <p class="text-secondary">Check that we’ve found the right class.</p>
+            <p id="course-guess" class="course-summary my-4"></p>
+            <div class="d-flex gap-3">
+              <button id="confirm-course" class="btn btn-primary flex-fill" type="button">Yes, that’s my course</button>
+              <button id="reject-course" class="btn btn-outline-secondary flex-fill" type="button">No, choose another</button>
+            </div>
+          </section>
+          <section id="search-panel" aria-labelledby="search-heading" hidden>
+            <p class="eyebrow">Step 2 · Find your course</p>
+            <h2 id="search-heading" class="h3 fw-bold">Choose your course</h2>
+            <p id="search-intro" class="text-secondary"></p>
+            <label for="course-search" class="form-label fw-semibold">Course code or title</label>
+            <input id="course-search" class="form-control" type="search" placeholder="For example: CH 101 or Chemistry" autocomplete="off" maxlength="150" aria-describedby="search-help search-status">
+            <p id="search-help" class="small text-secondary mt-2">Select your course from the results below.</p>
+            <p id="search-status" class="small text-secondary" role="status" aria-live="polite"></p>
+            <ul id="course-results" class="list-group course-results" aria-label="Matching courses"></ul>
+            <button id="retry-search" class="btn btn-outline-secondary mt-3" type="button" hidden>Try search again</button>
+          </section>
+          <section id="assignment-panel" aria-labelledby="assignment-heading" hidden>
+            <p class="eyebrow">One quick question</p>
+            <h2 id="assignment-heading" class="h3 fw-bold" tabindex="-1">What kind of assignment is this?</h2>
+            <p class="text-secondary">Choose the closest match so we can find the right kind of support.</p>
+            <p id="assignment-course" class="small fw-semibold"></p>
+            <div id="assignment-options" class="d-grid gap-2" role="group" aria-labelledby="assignment-heading" aria-describedby="assignment-help"></div>
+            <p id="assignment-help" class="small text-secondary mt-3 mb-0">Not sure which fits? Choose Other.</p>
+          </section>
+          <section id="selected-panel" aria-labelledby="selected-heading" hidden>
+            <p class="eyebrow">Assignment details confirmed</p>
+            <h2 id="selected-heading" class="h3 fw-bold" tabindex="-1">Your course and assignment type are set.</h2>
+            <p id="selected-course" class="course-summary my-4"></p>
+            <p class="text-secondary">Assignment type: <strong id="selected-assignment" class="text-body"></strong></p>
+            <button id="change-course" class="btn btn-outline-secondary" type="button">Change course</button>
+          </section>
+          <section id="recommendation-panel" aria-labelledby="recommendation-heading" hidden>
+            <p class="eyebrow">Your next step</p>
+            <h2 id="recommendation-heading" class="h3 fw-bold" tabindex="-1">Finding your support…</h2>
+            <p id="recommendation-context" class="small text-secondary"></p>
+            <p id="recommendation-loading" role="status" aria-live="polite"><span class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>Finding the right UA resource for you…</p>
+            <div id="recommendation-error" class="alert alert-danger" role="alert" hidden></div>
+            <button id="retry-recommendation" class="btn btn-primary mb-3" type="button" hidden>Try again</button>
+            <p id="recommendation-refusal" class="alert alert-light border" hidden>I can’t help with the assignment itself, but here’s where you can get help with it.</p>
+            <div id="recommendation-resource" hidden>
+              <p id="resource-reason" class="text-secondary"></p>
+              <dl class="resource-details">
+                <dt>Where to go</dt><dd id="resource-location"></dd>
+                <dt>Next open <span class="fw-normal text-secondary">(Central time)</span></dt><dd id="resource-hours"></dd>
+                <dt>How to attend</dt><dd id="resource-session"></dd>
+                <dt>Contact email</dt><dd id="resource-email"></dd>
+                <dt>Contact phone</dt><dd id="resource-phone"></dd>
+              </dl>
+              <a id="resource-booking" class="btn btn-primary w-100 mb-3" target="_blank" rel="noopener noreferrer" hidden>Book an appointment</a>
+              <p id="resource-booking-missing" class="small text-secondary" hidden></p>
+              <p id="resource-verified" class="small text-secondary mb-2"></p>
+              <p id="resource-stale" class="alert alert-warning small" hidden>Hours may have changed. Confirm before you go.</p>
+              <p id="resource-syllabus" class="alert alert-light border small" hidden>We couldn’t find help specific to this class. Your syllabus usually lists TA office hours and course help. Check your class page on Blackboard or UA’s Simple Syllabus page.</p>
+            </div>
+            <p id="recommendation-handoff" class="handoff-message" hidden></p>
+            <button id="recommendation-change-course" class="btn btn-outline-secondary mt-2" type="button">Change course</button>
+          </section>
+          <button id="start-over" class="btn btn-link text-secondary align-self-start mt-4 p-0" type="button" hidden>Start over with another assignment</button>
         </div>
       </section>
     </div>

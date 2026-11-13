@@ -11,7 +11,13 @@ h1 span { color: var(--crimson); }
 .support-note { line-height: 1.8; }
 .upload-card { border-radius: 1.1rem; box-shadow: 0 12px 40px #2525250a; }
 .step-number { display: inline-flex; justify-content: center; align-items: center; width: 1.8rem; height: 1.8rem; border-radius: 50%; background: #f7e9ec; color: var(--crimson); font-size: .8rem; font-weight: 700; }
-.form-control { resize: vertical; min-height: 92px; font-size: .95rem; border-color: #d7d5d2; }
+.form-control { font-size: .95rem; border-color: #d7d5d2; }
+textarea.form-control { resize: vertical; min-height: 92px; }
+.course-summary { padding: 1rem; background: #f7f6f3; border-left: 3px solid var(--crimson); border-radius: .25rem; font-size: 1.15rem; font-weight: 600; overflow-wrap: anywhere; }
+.course-results { max-height: 320px; overflow-y: auto; }
+.course-choice { border: 0; width: 100%; padding: .9rem 1rem; background: transparent; text-align: left; color: var(--ink); }
+.course-choice:hover, .course-choice:focus-visible { background: #f7e9ec; }
+.course-choice:focus-visible { outline: 2px solid var(--crimson); outline-offset: -2px; }
 .form-control:focus { border-color: var(--crimson); box-shadow: 0 0 0 .2rem #9e1b3220; }
 .btn-primary { --bs-btn-bg: var(--crimson); --bs-btn-border-color: var(--crimson); --bs-btn-hover-bg: #801529; --bs-btn-hover-border-color: #801529; --bs-btn-active-bg: #681121; --bs-btn-active-border-color: #681121; --bs-btn-disabled-bg: var(--crimson); --bs-btn-disabled-border-color: var(--crimson); font-size: 1rem; font-weight: 600; padding: .9rem 1.2rem; }
 .btn:focus-visible, .brand:focus-visible { outline: 3px solid var(--crimson); outline-offset: 4px; box-shadow: none; }
@@ -19,4 +25,8 @@ h1 span { color: var(--crimson); }
 .path-number { color: var(--crimson); font-size: .8rem; font-weight: 700; margin-right: .75rem; }
 .how-it-works p { margin-left: 2rem; }
 [hidden] { display: none !important; }
+.resource-details dt { font-size: .8rem; margin-top: 1rem; }
+.resource-details dd { margin-top: .25rem; overflow-wrap: anywhere; }
+.resource-details a { color: var(--crimson); }
+.handoff-message { white-space: pre-line; }
 @media (prefers-reduced-motion: reduce) { .spinner-border { animation: none; } }
