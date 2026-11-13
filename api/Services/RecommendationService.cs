@@ -178,8 +178,9 @@ public class RecommendationService
                 $"This looks like a {courseCode} {typeLabel}, and {resource.Name} covers {courseCode}.",
             MatchKind.SubjectLinked =>
                 $"This looks like a {courseCode} {typeLabel}, and {resource.Name} can help with this subject.",
+            // General fallback: plural plain-English type names ("essays and papers", etc.).
             _ =>
-                $"We couldn't find help specific to {courseCode}, but {resource.Name} can help with {typeLabel} for any class."
+                $"We couldn't find help specific to {courseCode}, but {resource.Name} can help with {AssignmentTypePluralLabel(assignmentType)} for any class."
         };
 
         return new RecommendResponse
@@ -541,6 +542,18 @@ public class RecommendationService
         "presentation" => "presentation",
         "exam_prep" => "exam prep",
         _ => "assignment"
+    };
+
+    /// <summary>Plural labels for the general-fallback reason sentence.</summary>
+    private static string AssignmentTypePluralLabel(string assignmentType) => assignmentType switch
+    {
+        "essay" => "essays and papers",
+        "lab_report" => "lab reports",
+        "problem_set" => "problem sets",
+        "coding_project" => "coding projects",
+        "presentation" => "presentations",
+        "exam_prep" => "exam prep",
+        _ => "assignments"
     };
 
     private static TimeZoneInfo ResolveCentralTimeZone()
