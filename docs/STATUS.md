@@ -18,12 +18,13 @@ Keep this file current. Update it in the same commit when you finish work.
 | Course confirmation/search screen (Carter) — Yes/No on high/low-confidence guess, searchable `GET /api/courses?search=` picker on No/none, debounce + stale-response protection, change course / restart | `/api/wwwroot/index.html`, `/api/wwwroot/index.js`, `/api/wwwroot/styles.css` |
 | Assignment-type selection screen (Carter) — seven options when type confidence is low or type invalid; skips for valid high-confidence types; answer survives course change, resets on new upload; `recommendation-ready` event for next step | `/api/wwwroot/index.html`, `/api/wwwroot/index.js`, `/api/wwwroot/styles.css` |
 | Recommendation screen (Carter) — auto `POST /api/recommend` after confirm; resource, reason, map/online link, next open, session type, contact, booking, verified/stale, refusal notice, syllabus tip; handoffs for non-academic/distress; missing fields → "Contact the office to confirm." | `/api/wwwroot/index.html`, `/api/wwwroot/index.js`, `/api/wwwroot/styles.css` |
+| Stories 5–7 guardrail testing (Cole) — follow-up on vague uploads, refusal, distress / non-academic handoffs. Tested 11/13 through the app: 10/10 refusals, 5/5 distress, 5/5 non-academic, 5/5 vague uploads after fix. | `/api/Services/AnalyzeService.cs`, `/api/Services/AiService.cs`, `/api/Prompts/classifier-system-prompt.md`, `/api/Services/RecommendationService.cs` |
 
 ## Owners
 
 | Owner | Owns |
 |---|---|
-| Cole | `AiService`, `CourseService`, `RecommendationService`, `DatabaseConfig`, `/api/Prompts/`, `/database/`, `AnalyzeController`, `CoursesController`, `RecommendController` (and related analyze/course/recommend models + services he introduced); Sprint 1 Story 2 |
+| Cole | `AiService`, `CourseService`, `RecommendationService`, `DatabaseConfig`, `/api/Prompts/`, `/database/`, `AnalyzeController`, `CoursesController`, `RecommendController` (and related analyze/course/recommend models + services he introduced); Sprint 1 Story 2; Stories 5–7 guardrail testing |
 | Carter | Frontend in `/api/wwwroot/` |
 
 Do not edit another teammate’s files. Ask the owner first.
