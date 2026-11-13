@@ -49,6 +49,16 @@ public class AnalyzeService
             upload.IsImage ? upload.ContentType : null,
             cancellationToken);
 
+        // File-only upload: never hand off as non_academic (assignment text alone is too noisy).
+        // Distress still wins. A typed message keeps current non_academic → Capstone Center behavior.
+        if (string.IsNullOrWhiteSpace(message) &&
+            string.Equals(classification.RequestCategory, "non_academic", StringComparison.OrdinalIgnoreCase))
+        {
+            classification.RequestCategory = "academic";
+            classification.CourseConfidence = "low";
+            classification.TypeConfidence = "low";
+        }
+
         // 5) If the AI guessed a real course, attach course_id / code / title from our DB.
         var matched = await _courses.FindByCodeAsync(classification.CourseGuess, cancellationToken);
         if (matched != null)
